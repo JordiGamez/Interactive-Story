@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C657CB1F1D531442004156DB /* InteractiveStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657CB1E1D531442004156DB /* InteractiveStory.swift */; };
 		C6D4AEDC1D51F857006D19A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D4AEDB1D51F857006D19A3 /* AppDelegate.swift */; };
 		C6D4AEDE1D51F857006D19A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D4AEDD1D51F857006D19A3 /* ViewController.swift */; };
 		C6D4AEE11D51F857006D19A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D4AEDF1D51F857006D19A3 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C657CB1E1D531442004156DB /* InteractiveStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveStory.swift; sourceTree = "<group>"; };
 		C6D4AED81D51F856006D19A3 /* InteractiveStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractiveStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D4AEDB1D51F857006D19A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D4AEDD1D51F857006D19A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				C6D4AEDB1D51F857006D19A3 /* AppDelegate.swift */,
 				C6D4AEDD1D51F857006D19A3 /* ViewController.swift */,
+				C657CB1E1D531442004156DB /* InteractiveStory.swift */,
 				C6D4AEE21D51F857006D19A3 /* Assets.xcassets */,
 				C6D4AEDF1D51F857006D19A3 /* Main.storyboard */,
 				C6D4AEE41D51F857006D19A3 /* LaunchScreen.storyboard */,
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					C6D4AED71D51F856006D19A3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = XDHVHAUCNX;
 					};
 				};
 			};
@@ -135,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C657CB1F1D531442004156DB /* InteractiveStory.swift in Sources */,
 				C6D4AEDE1D51F857006D19A3 /* ViewController.swift in Sources */,
 				C6D4AEDC1D51F857006D19A3 /* AppDelegate.swift in Sources */,
 			);
@@ -249,10 +254,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InteractiveStory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordigamez.InteractiveStory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +269,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InteractiveStory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordigamez.InteractiveStory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +299,7 @@
 				C6D4AEEC1D51F857006D19A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
