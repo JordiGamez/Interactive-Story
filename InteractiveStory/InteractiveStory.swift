@@ -9,16 +9,30 @@
 import Foundation
 import UIKit
 
-enum Story: String {
-    case ReturnTrip
+enum Story {
+    case ReturnTrip(String)
     case TouchDown
     case Homeward
-    case Rover
+    case Rover(String)
     case Cave
     case Crate
     case Monster
-    case Droid
+    case Droid(String)
     case Home
+    
+    var rawValue: String {
+        switch self {
+            case .ReturnTrip: return "ReturnTrip"
+            case .TouchDown: return "TouchDown"
+            case .Homeward: return "Homeward"
+            case .Rover: return "Rover"
+            case .Cave: return "Cave"
+            case .Crate: return "Crate"
+            case .Monster: return "Monster"
+            case .Droid: return "Droid"
+            case .Home: return "Home"
+        }
+    }
 }
 
 extension Story {
@@ -28,8 +42,8 @@ extension Story {
     
     var text: String {
         switch self {
-        case .ReturnTrip:
-            return "On your return trip from studying Saturn's ring, you hear a distress signal that seems to be coming from the surface of Mars. It's strange because there hasn't been a colony there in years. \"Help me, you're my only hope.\""
+        case .ReturnTrip(let name):
+            return "On your return trip from studying Saturn's ring, you hear a distress signal that seems to be coming from the surface of Mars. It's strange because there hasn't been a colony there in years. \"Help me \(name), you're my only hope.\""
             
         case .TouchDown:
             return "You deftly land your ship near where the distress signar originated. You didn't notice anything strange on your fly-by, behind you is an abandoned rover from the early 21st century and a smal crate."
@@ -37,8 +51,8 @@ extension Story {
         case .Homeward:
             return ""
             
-        case .Rover:
-            return ""
+        case .Rover(let name):
+            return "The rover is covered in dust and most of the solar panels are broken. But you are quite surprised to see the on-board system booted up and running. In fact, there is a message on the screen. \"\(name), to 28.2342, -81.08273\". These coordinates aren't far but you don't know if your oxygen will last there and back."
             
         case .Cave:
             return ""
@@ -49,8 +63,8 @@ extension Story {
         case .Monster:
             return ""
             
-        case .Droid:
-            return ""
+        case .Droid(let name):
+            return "After a long walk slightly uphill, you end up at the top of a small crater. You look around and are overjoyed to see your robot friend, \(name)-S1124. It had been lost on a previus mission to Mars. You take it back to your ship and fly back to Earth."
             
         case .Home:
             return ""
@@ -88,12 +102,12 @@ extension Page {
 }
 
 struct Adventure {
-    static var story: Page {
-        let returnTrip = Page(story: .ReturnTrip)
+    static func story(name: String) -> Page {
+        let returnTrip = Page(story: .ReturnTrip(name))
         let touchDown = returnTrip.addChoice("Stop and Investigate", story: .TouchDown)
         let homeward = returnTrip.addChoice("Continue Home to Earth", story: .Homeward)
         
-        let rover = touchDown.addChoice("Explore the Rover", story: .Rover)
+        let rover = touchDown.addChoice("Explore the Rover", story: .Rover(name))
         let crate = touchDown.addChoice("Open the Crate", story: .Crate)
         
         homeward.addChoice("Head back to Mars", page: touchDown)
@@ -102,7 +116,7 @@ struct Adventure {
         let cave = rover.addChoice("Explore the Coordinates", story: .Cave)
         rover.addChoice("Return to Earth", page: home)
 
-        cave.addChoice("Continue towards faint light", story: .Droid)
+        cave.addChoice("Continue towards faint light", story: .Droid(name))
         cave.addChoice("Refill the ship and explore the rover", page: rover)
         
         crate.addChoice("Explore the Rover", page: rover)
